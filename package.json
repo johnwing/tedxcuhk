@@ -20,5 +20,8 @@
     "url": "https://github.com/johnwing/tedxcuhk/issues"
   },
   "homepage": "https://github.com/johnwing/tedxcuhk#readme",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "express-mysql-session": "^2.1.3"
+  }
 }
