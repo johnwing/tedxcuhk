@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start":"node app.js",
+    "start": "node app.js",
     "build": "npm install",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/johnwing/tedxcuhk/issues"
   },
-  "homepage": "https://github.com/johnwing/tedxcuhk#readme"
+  "homepage": "https://github.com/johnwing/tedxcuhk#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
