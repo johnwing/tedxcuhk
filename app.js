@@ -27,7 +27,7 @@ function User(user){
 
 
 //heroku database connection setting
-var conn = mysql.createConnection({
+var conn = mysql.createPool({
     host: 'us-cdbr-iron-east-04.cleardb.net',
     user: 'bcdd175dab09d8',
     password: 'fd193bda',
@@ -40,7 +40,7 @@ var conn = mysql.createConnection({
 var port = process.env.PORT || 3000;
 
 //database connection test
-conn.connect();
+//conn.connect();
 conn.query('SELECT 12 + 34 AS result', function(err, rows, fields) 
 {
     if (err) throw err;
@@ -57,7 +57,7 @@ conn.query('select * from tedxcuhk', function(err, rows, fields) {
   data.user = rows[0];
   console.log(data.user);
 });
-conn.end();
+//conn.end();
 
 //server connection 
 app.listen(port, function () {
