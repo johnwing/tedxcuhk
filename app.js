@@ -8,7 +8,7 @@ const bodyParser = require('body-parser');
 crypto = require('crypto');
 app.engine('ejs',engine);
 //app.set('files','./files');
-//app.set('views', './views');
+app.set('views', './views');
 app.set('view engine','ejs');
 
 app.use(bodyParser.json()); // 支援 json
@@ -46,7 +46,7 @@ conn.query('SELECT 12 + 34 AS result', function(err, rows, fields)
     if (err) throw err;
     console.log('The result is: ', rows[0].result);
 }); 
-//conn.end();
+
 
 
 
@@ -57,7 +57,7 @@ conn.query('select * from tedxcuhk', function(err, rows, fields) {
   data.user = rows[0];
   console.log(data.user);
 });
-
+conn.end();
 
 //server connection 
 app.listen(port, function () {
