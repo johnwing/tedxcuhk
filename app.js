@@ -18,6 +18,12 @@ app.use(bodyParser.urlencoded({ // 解析表單內容
 
 
 
+//variables
+var useremail;
+var eventNo;
+var eventName;
+
+
 
 //variable setup
 function User(user){
@@ -81,6 +87,8 @@ app.get('/about/about-me', function(req, res) {
     res.send('Send about-me page!');
 });
 
+
+
 app.get('/input', function(req, res) {
   res.render('input');
 
@@ -89,7 +97,23 @@ app.get('/input', function(req, res) {
 });
 app.post('/input',function(req, res) {
   console.log(req.body.txtUserName);
+  var sql = {
+        email: req.body.txtUserName
+    };
+
+  //check email is on the list
+    var qur = conn.query('INSERT INTO account SET ?', sql, function(err, rows) {
+        if (err) {
+            console.log(err);
+        }
+        res.setHeader('Content-Type', 'application/json');
+        res.redirect('/');
+    });
+
+
+  //conn.query(qur);
   res.redirect('/input');
+
       
 
 });
