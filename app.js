@@ -100,15 +100,16 @@ app.post('/input',function(req, res) {
   var sql = {
         email: req.body.txtUserName
     };
-
+    console.log(sql);
   //check email is on the list
-    var qur = conn.query('INSERT INTO account SET ?', sql, function(err, rows) {
-        if (err) {
-            console.log(err);
-        }
-        res.setHeader('Content-Type', 'application/json');
-        res.redirect('/');
-    });
+  var cmd = "INSERT INTO account(email) VALUES(?)";
+  conn.query(cmd, [req.body.txtUserName], function (err,result) {
+            if (err) {
+                return;
+            }
+
+            //callback(err,result);                     
+        });       
 
 
   //conn.query(qur);
