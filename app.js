@@ -78,11 +78,15 @@ app.get('/', function (req, res) {
 
 app.get('/about', function(req, res) {
 
+  conn.query('select * from tedxcuhk', function(err, rows, fields) {
+    if (err) throw err;
+    // set data to object
+    data.user = rows[0];
+    console.log(data.user);
+  });
+
   var title="Hello";
-    res.render('about',{  
-   title: title,  
-   users: ['Kai', 'aYen', 'Kyousuke']  
-  });  
+    res.render('about',data.user);  
 });
 
 app.get('/about/about-me', function(req, res) {
