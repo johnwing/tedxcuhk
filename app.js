@@ -77,8 +77,10 @@ app.get('/', function (req, res) {
 });
 
 app.get('/about', function(req, res) {
+
+  var title="Hello";
     res.render('about',{  
-   title: '首頁',  
+   title: title,  
    users: ['Kai', 'aYen', 'Kyousuke']  
   });  
 });
